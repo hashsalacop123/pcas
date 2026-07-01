@@ -1,0 +1,202 @@
+/* Theme Name: Blank-temp
+ * Theme URI: hashalacop.info
+ * Description: This blank temp is Created by Hassanal S. Aguam this Template is support by bootstrap 4, fancybox, and slick, the menu, pagination is already define
+ * Version: 3
+ * Author: Hassanal S. Aguam
+ * Author URI: Hassanal S. Aguam
+ */
+
+/*==================Header Css Start ========================*/
+/*.buttonhover {
+    transition: .3s ease-in-out;
+    background: red;
+    border:1px solid;
+}
+.buttonhover:hover {
+    transition: .3s ease-in-in;
+    background: transparent;
+}*/
+ul.my-hash-menu {
+    padding-left: 0px;
+    list-style: none;
+    display: none;
+    padding: 15px;
+    z-index: 999;
+    position: absolute;
+
+}
+
+.navbar-nav li:hover .my-hash-menu {
+  display: inherit;
+      background: #cacaca;
+}
+.bg-faded {
+    background-color: transparent;
+}
+.header-wrapper {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background: #cacaca;
+}
+
+/*==================Header Css End ========================*/
+
+
+
+/*==================General Css Start ========================*/
+/* =WordPress Core
+-------------------------------------------------------------- */
+.searchesresults h1 {
+    text-align: center;
+}
+.searchesresults {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.notfound {text-align: center;}
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+.pagination {
+clear:both;
+padding:20px 0;
+position:relative;
+font-size:11px;
+line-height:13px;
+}
+ 
+.pagination span, .pagination a {
+display:block;
+float:left;
+margin: 2px 2px 2px 0;
+padding:6px 9px 5px 9px;
+text-decoration:none;
+width:auto;
+color:#fff;
+background: #555;
+}
+ 
+.pagination a:hover{
+color:#fff;
+background: #3279BB;
+}
+ 
+.pagination .current{
+padding:6px 9px 5px 9px;
+background: #3279BB;
+color:#fff;
+}
+/*==================General Css End ========================*/
+
+/*==================Footer Css Start ========================*/
+.footer-wrapper {
+    background: #cacaca;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+p.copyright {
+    text-align: center;
+}
+/*==================Footer Css End ========================*/
