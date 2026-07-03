@@ -1,11 +1,5 @@
 <?php get_header(); ?>
 <div class = "ind-template">
-<?php 
-	global $redux_demo;
-
-	// echo '<pre>';
-	// var_dump($redux_demo);
-?>
     <div class = "container">
         <?php 
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
