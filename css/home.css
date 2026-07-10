@@ -55,12 +55,13 @@ a {
 }
 
 .nav-inner {
-	max-width: 1180px;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 16px 22px;
+    max-width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    width: 1220px;
 }
 
 .brand {
@@ -125,7 +126,6 @@ a {
 	color: var(--pcas-blue);
 	letter-spacing: .08em;
 	text-transform: uppercase;
-	border-left: 1px solid var(--line);
 	padding-left: 10px;
 }
 
@@ -381,8 +381,8 @@ h1 {
 	border-radius: 34px;
 	background: linear-gradient(180deg, #ffffff, #eef4ff);
 	box-shadow: var(--shadow);
-	border: 1px solid #e2e9f6;
-	padding: 16px;
+	/* border: 1px solid #e2e9f6;
+	padding: 16px; */
 }
 
 .browser {

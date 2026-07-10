@@ -6,7 +6,67 @@
 
 
 get_header(); ?>
+<?php 
+    $online_text = get_field('online_text');
+    $green_background_text = get_field('green_background_text');
+    $heading_title = get_field('heading_title');
+    $text_description = get_field('text_description');
+    $button_1_text = get_field('button_1_text');
+    $button_1_url = get_field('button_1_url');
+    $button_2_text = get_field('button_2_text');
+    $button_2_url = get_field('button_2_url');
+    $total_training = get_field('total_training');
+    $doh = get_field('doh');
+    $theory = get_field('theory');
+    $image_right = get_field('image_right');
+?>
+  <div class="wrap hero-grid">
+      <div>
+        <?php if( $online_text ) :  ?>
+        <div class="mini-logo"><span><?php echo $online_text; ?></span></div>
+        <?php endif; ?>
 
+        <?php if( $green_background_text ) :  ?>
+        <div class="eyebrow"><?php echo $green_background_text; ?></div>
+         <?php endif; ?>
+
+
+          <?php if( $heading_title ) :  ?>
+          <h1><?php echo $heading_title; ?></h1>
+            <?php endif; ?>
+        
+        <?php if( $text_description ) :  ?>
+        <p class="lead"><?php echo $text_description; ?></p>
+        <?php endif; ?>
+
+
+        <div class="hero-actions">
+          <?php if( $button_1_text ) :  ?>
+           <a class="btn gold" href="<?php echo $button_1_url; ?>"><?php echo $button_1_text; ?></a>
+          <?php endif; ?>
+           <?php if( $button_2_text ) :  ?>
+             <a class="btn secondary" href="<?php echo $button_2_url; ?>"><?php echo $button_2_text; ?></a>
+            <?php endif; ?>
+        </div>
+        <div class="trust-row">
+        <?php if( $total_training ) :  ?>
+          <div class="trust-item"><?php echo $total_training; ?></div>
+        <?php endif; ?>
+        <?php if( $doh ) :  ?>
+          <div class="trust-item"><?php echo $doh; ?></div>
+        <?php endif; ?>
+      <?php if( $theory ) :  ?>
+          <div class="trust-item"><?php echo $theory;  ?></div>
+        <?php endif; ?>
+        
+        </div>
+      </div>
+      <div class="device" aria-label="Student portal mockup">
+          <?php if( $doh ) :  ?>
+            <img src = "<?php echo $image_right['url']; ?>">
+           <?php endif; ?>
+      </div>
+    </div>
   <section>
     <div class="wrap">
       <div class="section-head">

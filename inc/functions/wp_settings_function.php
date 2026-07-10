@@ -1,4 +1,16 @@
 <?php 
+/**
+ * Register theme menus.
+ */
+function mytheme_register_menus() {
+    register_nav_menus(
+        array(
+            'main' => __('Main Menu', 'pcas'),
+        )
+    );
+}
+add_action('after_setup_theme', 'mytheme_register_menus');
+
 //=============SUPPORT OF THE  THEME MENUS==========
     add_action( 'after_setup_theme', 'my_setup' );
      if ( ! function_exists( 'my_setup' ) ) {
