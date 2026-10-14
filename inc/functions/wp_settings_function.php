@@ -83,6 +83,196 @@ if ( ! function_exists( 'post_pagination' ) ) :
 endif;
 
 
+/**
+ * Allow SVG file uploads in WordPress.
+ *
+ * @param array $mimes Allowed mime types.
+ * @return array
+ */
+function hash_allow_svg_upload( $mimes ) {
+	$mimes['svg'] = 'image/svg+xml';
+
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'hash_allow_svg_upload' );
 
 
-?>
+
+
+/**
+ * Create the main LMS admin menu.
+ *
+ * This creates a top-level WordPress admin menu:
+ *
+ * LMS
+ *
+ * Your ACF-registered CPTs will then be placed
+ * underneath this menu.
+ */
+function hash_lms_admin_menu() {
+
+    add_menu_page(
+
+        // Browser/page title.
+        'Learning Management System',
+
+        // Sidebar menu title.
+        'LMS',
+
+        // Capability required to access the menu.
+        'manage_options',
+
+        // IMPORTANT:
+        // This is the menu slug that your ACF CPTs
+        // will use as their "Admin Menu Parent".
+        'hash-lms',
+
+        // Callback for the LMS dashboard.
+        'hash_lms_dashboard',
+
+        // WordPress Dashicon.
+        'dashicons-welcome-learn-more',
+
+        // Menu position.
+        25
+    );
+}
+
+add_action(
+    'admin_menu',
+    'hash_lms_admin_menu'
+);
+
+
+/**
+ * Display the LMS dashboard.
+ */
+function hash_lms_dashboard() {
+    ?>
+
+    <div class="wrap">
+
+        <h1>Learning Management System</h1>
+
+        <p>
+            Welcome to your custom LMS.
+        </p>
+
+    </div>
+
+    <?php
+}
+
+
+/**
+ * Reorder the LMS submenu items.
+ *
+ * This changes the order to:
+ *
+ * LMS
+ * ├── All Courses
+ * ├── All Subjects
+ * ├── All Modules
+ * └── All Lessons
+ */
+function hash_reorder_lms_submenu() {
+
+    global $submenu;
+
+    /*
+     * IMPORTANT:
+     *
+     * Change this if your LMS parent menu slug
+     * is not "hash-lms".
+     */
+    $lms_menu_slug = 'hash-lms';
+
+    /*
+     * Make sure the LMS submenu exists.
+     */
+    if ( empty( $submenu[ $lms_menu_slug ] ) ) {
+        return;
+    }
+
+    /*
+     * This is the order we want.
+     *
+     * These are the actual submenu titles
+     * shown in your screenshot.
+     */
+    $desired_order = [
+        'All Courses',
+        'All Subjects',
+        'All Modules',
+        'All Lessons',
+    ];
+
+    /*
+     * Get the existing submenu items.
+     */
+    $existing_items = $submenu[ $lms_menu_slug ];
+
+    /*
+     * Create our new ordered array.
+     */
+    $ordered_items = [];
+
+    /*
+     * Go through our desired order.
+     */
+    foreach ( $desired_order as $desired_title ) {
+
+        foreach ( $existing_items as $key => $item ) {
+
+            /*
+             * WordPress stores the submenu title
+             * in $item[0].
+             */
+            if (
+                isset( $item[0] ) &&
+                trim( wp_strip_all_tags( $item[0] ) ) === $desired_title
+            ) {
+
+                $ordered_items[] = $item;
+
+                /*
+                 * Remove this item from the original
+                 * array so it doesn't get added twice.
+                 */
+                unset( $existing_items[ $key ] );
+
+                break;
+            }
+        }
+    }
+
+    /*
+     * Add anything that wasn't included in our
+     * desired order after the ordered items.
+     *
+     * This is useful if later you add:
+     *
+     * Students
+     * Quizzes
+     * Enrollments
+     * Settings
+     */
+    foreach ( $existing_items as $item ) {
+        $ordered_items[] = $item;
+    }
+
+    /*
+     * Replace the original LMS submenu.
+     */
+    $submenu[ $lms_menu_slug ] = $ordered_items;
+}
+
+/*
+ * Run this very late so ACF has already registered
+ * all of your CPT submenu items.
+ */
+add_action(
+    'admin_menu',
+    'hash_reorder_lms_submenu',
+    99999
+);

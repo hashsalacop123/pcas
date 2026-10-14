@@ -10,6 +10,7 @@ function theme_enqueue_styles() {
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'home', get_template_directory_uri() . '/css/home.css' );
     wp_enqueue_style( 'header', get_template_directory_uri() . '/css/header.css' );
+     wp_enqueue_style( 'general', get_template_directory_uri() . '/css/general.css' );
     wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css' );
     //=============FANCYBOX=========    
     wp_enqueue_style( 'jquery.fancybox.css', get_template_directory_uri() . '/api-blocks/fancyapps/source/jquery.fancybox.css');

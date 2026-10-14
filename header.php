@@ -24,12 +24,15 @@
             $logo = get_field('logo','option');
             if($logo) :
         ?>
-            <img src="<?php echo $logo['url']; ?>" alt="Logo">
+        <div class = "logo-container">
+            <a href="<?php echo esc_url(home_url('/')); ?>">
+<img src="<?php echo $logo['url']; ?>" alt="Logo"></a>
           <?php 
             endif; 
           ?>
             <!-- <span class="brand-copy"><strong>Pacific Center for Advanced Studies</strong><small>Online Embalming Course</small></span> -->
       </a>
+        </div>
    <?php
 /**
  * Display the Main menu without <ul> and <li>.
@@ -66,6 +69,18 @@ if ($menu) {
 }?>
     </div>
   </nav>
-   
+   <div class = "navigation-bottom">
+    <div class = "container">
+        <ul class = "bottom-list">
+            <li><a href = "#">Admission</a></li>
+            <li><a  href = "#">Programs</a></li>
+            <li><a  href = "#">Our Story</a></li>
+            <li><a href = "#">faculty</a></li>
+            <li><a href = "#">Student Life</a></li>
+            <li><a href = "#">Gallery</a></li>
+            <li><a href = "#">Contact Us</a></li>
+        </ul>
+        </div>
+   </div>
   
   </header>
