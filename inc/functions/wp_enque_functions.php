@@ -12,6 +12,29 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'header', get_template_directory_uri() . '/css/header.css' );
      wp_enqueue_style( 'general', get_template_directory_uri() . '/css/general.css' );
     wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css' );
+    wp_enqueue_script('pcas-header-menu', get_template_directory_uri() . '/js/header-menu.js', array(), '1.0.0', true);
+    if (is_page_template('templates/contact.php')) {
+        wp_enqueue_style('pcas-contact', get_template_directory_uri() . '/css/contact.css', array('home', 'header', 'general', 'responsive'), '1.0.0');
+    }
+    if (is_page_template('templates/registraion.php') || is_page_template('templates/login.php') || is_page_template('templates/user-account.php')) {
+        wp_enqueue_style('pcas-account', get_template_directory_uri() . '/css/account.css', array('home', 'header', 'general', 'responsive'), '1.0.0');
+    }
+    if (is_page_template('templates/gallery.php')) {
+        wp_enqueue_style('pcas-gallery', get_template_directory_uri() . '/css/gallery.css', array('home', 'header', 'general', 'responsive'), '1.0.0');
+        wp_enqueue_script('pcas-gallery-lightbox', get_template_directory_uri() . '/js/gallery-lightbox.js', array(), '1.0.0', true);
+    }
+    if (is_page_template('templates/about-us.php')) {
+        wp_enqueue_style('pcas-about', get_template_directory_uri() . '/css/about.css', array('home', 'header', 'general', 'responsive'), '1.0.0');
+    }
+    if (is_page_template('templates/faculty.php')) {
+        wp_enqueue_style('pcas-faculty', get_template_directory_uri() . '/css/faculty.css', array('home', 'header', 'general', 'responsive'), '1.0.0');
+    }
+    if (is_page_template('templates/browse-lessons.php')) {
+        wp_enqueue_style('pcas-browse-lessons', get_template_directory_uri() . '/css/browse-lessons.css', array('home', 'header', 'general', 'responsive'), '1.0.0');
+    }
+    if (is_singular(array('course', 'lesson'))) {
+        wp_enqueue_style('pcas-learning', get_template_directory_uri() . '/css/learning.css', array('home', 'header', 'general', 'responsive'), '1.0.0');
+    }
     //=============FANCYBOX=========    
     wp_enqueue_style( 'jquery.fancybox.css', get_template_directory_uri() . '/api-blocks/fancyapps/source/jquery.fancybox.css');
     wp_enqueue_style( 'jquery.fancybox-buttons.css', get_template_directory_uri() . '/api-blocks/fancyapps/source/helpers/jquery.fancybox-buttons.css' );

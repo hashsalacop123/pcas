@@ -357,6 +357,111 @@ add_action(
     'hash_frontend_registration'
 );
 
+/** Save a student's course enrollment to their account. */
+function pcas_enroll_course() {
+	if (!is_user_logged_in()) {
+		wp_safe_redirect(home_url('/login/'));
+		exit;
+	}
+
+	$course_id = absint($_POST['course_id'] ?? 0);
+	$redirect  = wp_get_referer() ?: home_url('/browse-lessons/');
+	if (!$course_id || 'course' !== get_post_type($course_id) || 'publish' !== get_post_status($course_id)) {
+		wp_safe_redirect(add_query_arg('enrollment', 'error', $redirect));
+		exit;
+	}
+
+	$nonce = isset($_POST['pcas_enroll_nonce']) ? sanitize_text_field(wp_unslash($_POST['pcas_enroll_nonce'])) : '';
+	if (!wp_verify_nonce($nonce, 'pcas_enroll_course_' . $course_id)) {
+		wp_safe_redirect(add_query_arg('enrollment', 'error', $redirect));
+		exit;
+	}
+
+	$user_id = get_current_user_id();
+	$enrolled = array_map('absint', (array) get_user_meta($user_id, 'pcas_enrolled_courses', true));
+	if (in_array($course_id, $enrolled, true)) {
+		wp_safe_redirect(add_query_arg('enrollment', 'already', $redirect));
+		exit;
+	}
+
+	$enrolled[] = $course_id;
+	update_user_meta($user_id, 'pcas_enrolled_courses', array_values(array_unique($enrolled)));
+	wp_safe_redirect(add_query_arg('enrollment', 'success', $redirect));
+	exit;
+}
+add_action('admin_post_pcas_enroll_course', 'pcas_enroll_course');
+add_action('admin_post_nopriv_pcas_enroll_course', 'pcas_enroll_course');
+
+/** Record completion for a lesson in a course the student is enrolled in. */
+function pcas_complete_lesson() {
+	if (!is_user_logged_in()) {
+		wp_safe_redirect(home_url('/login/'));
+		exit;
+	}
+
+	$lesson_id = absint($_POST['lesson_id'] ?? 0);
+	$lesson = $lesson_id ? get_post($lesson_id) : null;
+	$nonce = isset($_POST['pcas_complete_nonce']) ? sanitize_text_field(wp_unslash($_POST['pcas_complete_nonce'])) : '';
+	if (!$lesson || 'lesson' !== $lesson->post_type || 'publish' !== $lesson->post_status || !wp_verify_nonce($nonce, 'pcas_complete_lesson_' . $lesson_id)) {
+		wp_die('We could not verify this lesson action. Please return to the lesson and try again.');
+	}
+
+	$lesson_details = function_exists('get_field') ? get_field('lesson_details', $lesson_id) : array();
+	$module = is_array($lesson_details) ? ($lesson_details['parent_module'] ?? 0) : 0;
+	$module_id = $module instanceof WP_Post ? (int) $module->ID : absint($module);
+	$module_details = $module_id && function_exists('get_field') ? get_field('module_details', $module_id) : array();
+	$subject = is_array($module_details) ? ($module_details['parent_subject'] ?? 0) : 0;
+	$subject_id = $subject instanceof WP_Post ? (int) $subject->ID : absint($subject);
+	$subject_details = $subject_id && function_exists('get_field') ? get_field('subject_details', $subject_id) : array();
+	$course = is_array($subject_details) ? ($subject_details['parent_course'] ?? 0) : 0;
+	$course_id = $course instanceof WP_Post ? (int) $course->ID : absint($course);
+	$enrolled = array_map('absint', (array) get_user_meta(get_current_user_id(), 'pcas_enrolled_courses', true));
+	if (!$course_id || !in_array($course_id, $enrolled, true)) {
+		wp_die('You need to be enrolled in this course to mark its lessons complete.');
+	}
+
+	$completed = array_map('absint', (array) get_user_meta(get_current_user_id(), 'pcas_completed_lessons', true));
+	$completed[] = $lesson_id;
+	update_user_meta(get_current_user_id(), 'pcas_completed_lessons', array_values(array_unique($completed)));
+	wp_safe_redirect(get_permalink($lesson_id));
+	exit;
+}
+add_action('admin_post_pcas_complete_lesson', 'pcas_complete_lesson');
+add_action('admin_post_nopriv_pcas_complete_lesson', 'pcas_complete_lesson');
+
+/** Update basic student profile details from the account dashboard. */
+function pcas_update_profile() {
+	if (!is_user_logged_in()) {
+		wp_safe_redirect(home_url('/login/'));
+		exit;
+	}
+
+	$nonce = isset($_POST['pcas_profile_nonce']) ? sanitize_text_field(wp_unslash($_POST['pcas_profile_nonce'])) : '';
+	if (!wp_verify_nonce($nonce, 'pcas_update_profile')) {
+		wp_die('We could not verify this profile update. Please return to your account and try again.');
+	}
+
+	$user_id = get_current_user_id();
+	$email = sanitize_email(wp_unslash($_POST['email'] ?? ''));
+	$first_name = sanitize_text_field(wp_unslash($_POST['first_name'] ?? ''));
+	$last_name = sanitize_text_field(wp_unslash($_POST['last_name'] ?? ''));
+	$email_owner = $email ? email_exists($email) : false;
+	if (!is_email($email) || ($email_owner && (int) $email_owner !== $user_id)) {
+		wp_safe_redirect(add_query_arg('profile', 'invalid', home_url('/my-account/')));
+		exit;
+	}
+
+	$result = wp_update_user(array('ID' => $user_id, 'user_email' => $email, 'first_name' => $first_name, 'last_name' => $last_name));
+	if (is_wp_error($result)) {
+		wp_safe_redirect(add_query_arg('profile', 'invalid', home_url('/my-account/')));
+		exit;
+	}
+
+	wp_safe_redirect(add_query_arg('profile', 'updated', home_url('/my-account/')));
+	exit;
+}
+add_action('admin_post_pcas_update_profile', 'pcas_update_profile');
+
 
 
 

@@ -1,86 +1,55 @@
-
-<!DOCTYPE HTML>
+<!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title><?php wp_title('|',TRUE,'right'); bloginfo('name'); ?></title>
-<!--    <link rel="shortcut icon" href="/wp-content/uploads/2016/08/cropped-favicon-32x32.png" />-->
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
+	<?php wp_head(); ?>
 </head>
-   <header id="top" class="hero">
-    <?php wp_head(); ?>
-    <body <?php body_class(); ?>>
-    <?php 
-      $top_banner = get_field('top_banner','option');
-        if($top_banner) :
-    ?>
-          <div class="top-strip"><?php echo $top_banner;  ?></div>
-          <?php endif; ?>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="PCAS home">
-        <?php 
-            $logo = get_field('logo','option');
-            if($logo) :
-        ?>
-        <div class = "logo-container">
-            <a href="<?php echo esc_url(home_url('/')); ?>">
-<img src="<?php echo $logo['url']; ?>" alt="Logo"></a>
-          <?php 
-            endif; 
-          ?>
-            <!-- <span class="brand-copy"><strong>Pacific Center for Advanced Studies</strong><small>Online Embalming Course</small></span> -->
-      </a>
-        </div>
-   <?php
-/**
- * Display the Main menu without <ul> and <li>.
- */
-$menu_name = 'Main'; // The menu name in Appearance > Menus.
-$menu = wp_get_nav_menu_object($menu_name);
-
-if ($menu) {
-    $menu_items = wp_get_nav_menu_items($menu->term_id);
-
-    if ($menu_items) {
-        echo '<div class="nav-links">';
-
-        foreach ($menu_items as $item) {
-
-            // Default class.
-            $class = '';
-
-            // Add a button class if the menu item has "btn-applyonline".
-            if (in_array('btn-applyonline', $item->classes, true)) {
-                $class = 'btn';
-            }
-
-            printf(
-                '<a href="%1$s"%2$s>%3$s</a>',
-                esc_url($item->url),
-                $class ? ' class="' . esc_attr($class) . '"' : '',
-                esc_html($item->title)
-            );
-        }
-
-        echo '</div>';
-    }
-}?>
-    </div>
-  </nav>
-   <div class = "navigation-bottom">
-    <div class = "container">
-        <ul class = "bottom-list">
-            <li><a href = "#">Admission</a></li>
-            <li><a  href = "#">Programs</a></li>
-            <li><a  href = "#">Our Story</a></li>
-            <li><a href = "#">faculty</a></li>
-            <li><a href = "#">Student Life</a></li>
-            <li><a href = "#">Gallery</a></li>
-            <li><a href = "#">Contact Us</a></li>
-        </ul>
-        </div>
-   </div>
-  
-  </header>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+<header id="top" class="hero site-header">
+	<?php
+	$top_banner = function_exists('get_field') ? get_field('top_banner', 'option') : '';
+	if ($top_banner) : ?>
+		<div class="top-strip"><?php echo wp_kses_post($top_banner); ?></div>
+	<?php endif; ?>
+	<nav class="nav" aria-label="Primary navigation">
+		<div class="nav-inner">
+			<a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="PCAS home">
+				<?php
+				$logo = function_exists('get_field') ? get_field('logo', 'option') : false;
+				if (is_array($logo) && !empty($logo['url'])) : ?>
+					<img class="brand-logo" src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt'] ?? 'Pacific Center for Advanced Studies'); ?>">
+				<?php else : ?>
+					<img class="brand-logo" src="<?php echo esc_url(get_template_directory_uri() . '/img/logo.png'); ?>" alt="Pacific Center for Advanced Studies">
+				<?php endif; ?>
+			</a>
+			<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="pcas-primary-menu">
+				<span class="nav-toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+				<span>Menu</span>
+			</button>
+			<?php
+			wp_nav_menu(array(
+				'theme_location' => 'main',
+				'menu'           => 'main',
+				'container'      => false,
+				'menu_id'        => 'pcas-primary-menu',
+				'menu_class'     => 'nav-links',
+				'depth'          => 1,
+				'fallback_cb'    => false,
+			));
+			?>
+		</div>
+	</nav>
+	<nav class="navigation-bottom" aria-label="More about PCAS">
+		<div class="container">
+			<ul class="bottom-list">
+				<li><a href="<?php echo esc_url(home_url('/about-us/')); ?>">About PCAS</a></li>
+				<li><a href="<?php echo esc_url(home_url('/faculty/')); ?>">Faculty</a></li>
+				<li><a href="<?php echo esc_url(home_url('/gallery/')); ?>">Gallery</a></li>
+				<li><a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>

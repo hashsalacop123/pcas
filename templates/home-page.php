@@ -42,10 +42,10 @@ get_header(); ?>
 
         <div class="hero-actions">
           <?php if( $button_1_text ) :  ?>
-           <a class="btn gold" href="<?php echo $button_1_url; ?>"><?php echo $button_1_text; ?></a>
+           <a class="btn gold" href="<?php echo esc_url( home_url( '/registration/' ) ); ?>"><?php echo esc_html( $button_1_text ); ?></a>
           <?php endif; ?>
            <?php if( $button_2_text ) :  ?>
-             <a class="btn secondary" href="<?php echo $button_2_url; ?>"><?php echo $button_2_text; ?></a>
+             <a class="btn secondary" href="<?php echo esc_url( home_url( '/#curriculum' ) ); ?>"><?php echo esc_html( $button_2_text ); ?></a>
             <?php endif; ?>
         </div>
         <div class="trust-row">

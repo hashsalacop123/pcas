@@ -243,4 +243,48 @@ section.our-program-section {
     color: var(--muted);
     line-height: 1.65;
     margin: 0;
+}.remove-width-p p {
+    max-width: 100%;
+}
+
+/* ====//faculty=== */
+
+.combo-pic img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.combo-pic {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.combo-pic i {
+    font-size: 30px;
+    background: #2c8be5;
+    padding: 15px 10px 15px 10px;
+    border-radius: 100px;
+    color: #fff;
+}
+
+.combo-pic ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+
+.combo-pic ul .name {
+    font-size: 21px;
+    color: #10164f;
+    font-weight: 600;
+}
+.faculty-container {
+    background: #fff;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 12px 42px rgba(13, 27, 76, .07);
 }

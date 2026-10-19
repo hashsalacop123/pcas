@@ -13,7 +13,7 @@
               <?php echo $ctacontent; ?>
             <?php endif; ?>
         </div>
-        <a class="btn gold" href="#enrol">Apply Now</a>
+        <a class="btn gold" href="<?php echo esc_url( home_url( '/registration/' ) ); ?>">Apply Now</a>
       </div>
     </div>
   </section>

@@ -1,295 +1,87 @@
-<?php 
+<?php
 /**
  * Template Name: About us page
- * Description: A custom page template.
+ * Description: About Pacific Center for Advanced Studies.
  */
 
+get_header();
+$upload_base = wp_upload_dir()['baseurl'];
+$registration_url = home_url('/registration/');
+$contact_url = home_url('/contact/');
+?>
+<main class="pcas-about">
+	<section class="pcas-about-hero" style="--about-hero-image: url('<?php echo esc_url($upload_base . '/2026/10/sl1.jpg'); ?>')">
+		<div class="pcas-about-wrap pcas-about-hero-inner">
+			<div class="pcas-about-hero-copy">
+				<span class="pcas-about-kicker">Pacific Center for Advanced Studies</span>
+				<h1>Quality education for future professionals.</h1>
+				<p>PCAS is a Department of Health accredited training institution through the Committee of Examiners for Undertakers and Embalmers. Our programs have produced topnotchers in written and oral examinations, reflecting our commitment to quality embalming education.</p>
+				<div class="pcas-about-actions">
+					<a class="pcas-about-button pcas-about-button-gold" href="<?php echo esc_url($registration_url); ?>">Start enrollment <span aria-hidden="true">→</span></a>
+					<a class="pcas-about-button pcas-about-button-outline" href="#our-story">Discover PCAS</a>
+				</div>
+			</div>
+			<div class="pcas-about-hero-badge"><span>PCAS</span><small>Learn · Practice · Serve</small></div>
+			<div class="pcas-about-trust" aria-label="PCAS highlights">
+				<div><strong>80</strong><span>seat classroom</span></div>
+				<div><strong>Modern</strong><span>learning facilities</span></div>
+				<div><strong>DOH</strong><span>accredited programs</span></div>
+			</div>
+		</div>
+	</section>
 
-get_header(); ?>
-<!-- BANNER -->
-<div class="section-container-top" style="background-image: url('http://pcas.local/wp-content/uploads/2026/10/sl1.jpg');">    <div class = "about-page-banner container">
-        <div class = "row">
-            <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h2><div class = "eyebrow">Pacific center for advance studies</div></h2>
-                <h1>Quality Education for future Professionals</h1>
-                <p>PCAS is an accredited training institution by the Department of Health – Committee of Examiners for Undertakers and Embalmers (CEUE). Our programs have produced topnotchers in both written and oral examinations for embalmers and our testament to quality embalming education.</p>
-        <div class="hero-actions">
-             <a class="btn gold" href="#">Start Enrollment</a>
-             <a class="btn secondary" href="#">Learn More</a>
-        </div>
-            <div class="trust-row row-trusted">
-                
-                <div class="trust-item"><strong>80</strong> <span>Seating Capacity</span> </div>
-               
-                <div class="trust-item"><strong>Modern Facilities</strong> <span>with Laboratories</span></div>
-               
-                <div class="trust-item"><strong>DOH Accredited</strong> <span>Training Instituation</span></div>
-              
-        </div>
-            </div>
-            <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12 play-button-video">
-              
-                    <div class = "btn-play">
-                       <a href = ""> <i class="fa fa-play" aria-hidden="true"></i></a>
-                    <div>Watch Our Video</div>
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<section class="pcas-about-story" id="our-story">
+		<div class="pcas-about-wrap">
+			<div class="pcas-about-story-intro">
+				<span class="pcas-about-eyebrow">Our story</span>
+				<h2>Learning that helps people move forward.</h2>
+				<p>We believe every success story is built on hard work, practice, and the right support. At PCAS, we create opportunities for students to grow their knowledge, build confidence, and reach their full potential.</p>
+			</div>
+			<div class="pcas-about-pillars">
+				<article class="pcas-about-pillar">
+					<span class="pcas-about-pillar-icon" aria-hidden="true"><i class="fa fa-users"></i></span>
+					<span class="pcas-about-card-label">Our community</span>
+					<h3>Our group</h3>
+					<p>The Philippine Mortuary Association brings together mortuary owners and professionals across the Philippines. PCAS is a charter member and partner in providing education, training, and professional updates.</p>
+				</article>
+				<article class="pcas-about-pillar">
+					<span class="pcas-about-pillar-icon" aria-hidden="true"><i class="fa fa-history"></i></span>
+					<span class="pcas-about-card-label">Our roots</span>
+					<h3>Our history</h3>
+					<p>Originating in Cebu, PCAS is now based in Metro Manila. Our learning spaces include an air-conditioned, Wi-Fi enabled classroom, a mortuary library, and a conference room.</p>
+				</article>
+				<article class="pcas-about-pillar">
+					<span class="pcas-about-pillar-icon" aria-hidden="true"><i class="fa fa-handshake-o"></i></span>
+					<span class="pcas-about-card-label">Working together</span>
+					<h3>Our partners</h3>
+					<p>Our partnership with Cosmopolitan Memorial Chapels Inc. gives students access to practical learning in a modern embalming facility and supports a rich, hands-on education.</p>
+				</article>
+			</div>
+		</div>
+	</section>
 
-
-<!-- OUR STORY -->
-<!-- OUR STORY SECTION -->
-<section class="our-story-section section-head">
-    <div class="container">
-        <div class="row align-items-center">
-
-            <!-- Our Story Introduction -->
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="our-story-content">
-                    <div class="mini-logo">
-                        <span>Our Story</span>
-                    </div>
-
-                    <h2>Ours is a story of quality...</h2>
-                    <br>
-                    <p>
-                        Holistic Learning. Pacific Center for Advanced Studies is
-                        an institution for people who believe that every success
-                        story is built on hard work and perseverance. Through
-                        our training programs, we provide opportunities for
-                        students to grow and succeed.
-                    </p>
-
-                    <p>
-                        We facilitate learning that not only boosts confidence
-                        but also inspires every student to unlock their full
-                        potential.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Our Group Information -->
-            <div class="col-lg-8 col-md-8 col-sm-12">
-                <div class="our-story-box">
-                    <div class="box-info">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-
-                        <h3>Our Group</h3>
-
-                        <p>
-                            The Philippine Mortuary Association is a leading
-                            organization of mortuary owners and professionals
-                            in the Philippines. Our institution is a charter
-                            member and partner in providing updates, training,
-                            and education to its members.
-                        </p>
-                    </div>
-                         <div class="box-info">
-                        <i class="fa fa-history" aria-hidden="true"></i>
-
-
-                        <h3>History</h3>
-
-                        <p>
-                         Originated in Cebu, PCAS is seated in the metro with amenities that are learning conducive. We have an 80 seating capacity air conditioned wifi – enabled classroom, a comprehensive mortuary library, a conference room.
-
-                        </p>
-                    </div>
-                     <div class="box-info">
-<i class="fa fa-handshake-o" aria-hidden="true"></i>
-
-
-                        <h3>Partners
-</h3>
-
-                        <p>
-We partner with Cosmopolitan Memorial Chapels Inc. that houses the most sophisticated and most modern embalming room in the Philippines and Asia. With PCAS, it’s a promise of quality learning experience that’s both fulfilling and fun.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- OUR PROGRAMS SECTION -->
-<section class="our-program-section section-head">
-    <div class="container">
-        <div class="mini-logo">
-            <span>Our Programs</span>
-        </div>
-
-        <h2>PCAS Programs</h2>
-    <br>
-        <p>
-            PCAS is an accredited mortuary school of the Department of Health Philippines.
-            Every height of success is a story of perseverance.
-        </p>
-
-        
-<!-- PROGRAM TABS -->
-<ul class="nav nav-tabs program-tabs" id="programTabs" role="tablist">
-
-    <!-- ELR TAB -->
-    <li class="nav-item">
-        <a class="nav-link active"
-           id="elr-tab"
-           data-toggle="tab"
-           href="#elr"
-           role="tab"
-           aria-controls="elr"
-           aria-selected="true">
-            ELR
-        </a>
-    </li>
-
-    <!-- CEE TAB -->
-    <li class="nav-item">
-        <a class="nav-link"
-           id="cee-tab"
-           data-toggle="tab"
-           href="#cee"
-           role="tab"
-           aria-controls="cee"
-           aria-selected="false">
-            CEE
-        </a>
-    </li>
-
-    <!-- ISP TAB -->
-    <li class="nav-item">
-        <a class="nav-link"
-           id="isp-tab"
-           data-toggle="tab"
-           href="#isp"
-           role="tab"
-           aria-controls="isp"
-           aria-selected="false">
-            ISP
-        </a>
-    </li>
-
-</ul>
-
-<!-- TAB CONTENT -->
-<div class="tab-content program-content">
-
-    <!-- ELR CONTENT -->
-    <div class="tab-pane fade show active"
-         id="elr"
-         role="tabpanel"
-         aria-labelledby="elr-tab">
-        <div class = "eyebrow">Featured Program</div>
-
-<div class = "container">
-    <div class = "row">
-        <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <h3>Embalming Licensure Course</h3>
-
-        <p>
-            This two-month program comprises theoretical and practical sessions that prepare students for the Department of Health licensure exam for undertakers and embalmers in the Philippines.
-        </p>
-            <div class="hero-actions">
-             <a class="btn gold" href="#">View Detailed Curriculum</a>
-             <a class="btn secondary" href="#">Inquire Now</a>
-        </div>
-        </div>
-         <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class = "img-container">
-                <img src = "http://pcas.local/wp-content/uploads/2026/10/sl1.jpg" alt = "" class = "img-fluid"/>
-            </div>
-        </div>
-    </div>
-</div>
-        
-
-    </div>
-
-    <!-- CEE CONTENT -->
-    <div class="tab-pane fade"
-         id="cee"
-         role="tabpanel"
-         aria-labelledby="cee-tab">
-            <div class = "eyebrow">Featured Program</div>
-
-       <div class = "container">
-    <div class = "row">
-        <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <h3>Continuing Embalmers Education</h3>
-
-        <p>
-Our topic offerings has a vast selection from advanced technical skills of embalmers, mortuary business operation and even management strategies. These programs are credited with units necessary for the renewal of license embalmers.
-
-        </p>
-             <ul>
-            <li>RED TAG- team building for mortuary professionals</li>
-            <li>MARKETING MORTUARY TO MILLIONS (3M’s)</li>
-            <li>LET’S TALK NUMBERS – mortuary financial management</li>
-            <li>EFFECTIVE FUNERAL DIRECTING</li>
-            <li>FUNERAL BUSINESS 911- Reviving a dying funeral home</li>
-            <li>CSI: CONTAINING SERIOUS ILLNESSES</li>
-            <li>EMBALMING ANALYSIS</li>
-            <li>RESTORATIVE ART</li>
-            <li>EMERGENCY: First Aid Management in the Embalming Room</li>
-        </ul>
-            <div class="hero-actions">
-             <a class="btn gold" href="#">View Detailed Curriculum</a>
-             <a class="btn secondary" href="#">Inquire Now</a>
-        </div>
-        </div>
-         <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class = "img-container">
-                <img src = "http://pcas.local/wp-content/uploads/2026/10/sl2.jpg" alt = "" class = "img-fluid"/>
-            </div>
-        </div>
-    </div>
-</div>
-
-    </div>
-
-    <!-- ISP CONTENT -->
-    <div class="tab-pane fade"
-         id="isp"
-         role="tabpanel"
-         aria-labelledby="isp-tab">
-            <div class = "eyebrow">Featured Program</div>
-
-        <div class = "container">
-    <div class = "row">
-        <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <h3>Program for International Students
-</h3>
-
-        <p>
-PCAS has also been a hub for international students in our neighboring countries where they are educated with professional practices applied here.Our program for international students include an intensive 2 weeks program with theoretical classes. Customized programs are also available.
-        </p>
-      
-            <div class="hero-actions">
-             <a class="btn gold" href="#">View Detailed Curriculum</a>
-             <a class="btn secondary" href="#">Inquire Now</a>
-        </div>
-        </div>
-         <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class = "img-container">
-                <img src = "http://pcas.local/wp-content/uploads/2026/10/sl3.jpg" alt = "" class = "img-fluid"/>
-            </div>
-        </div>
-    </div>
-</div>
-
-    </div>
-
-</div>
-
-    </div>
-
-    
-</section>
-
-
+	<section class="pcas-about-programs" id="programs">
+		<div class="pcas-about-wrap">
+			<div class="pcas-about-program-heading">
+				<div><span class="pcas-about-eyebrow">Learn with purpose</span><h2>Programs built for your next step.</h2></div>
+				<p>Explore professional training for licensure, continuing education, and international learners.</p>
+			</div>
+			<div class="pcas-about-program-grid">
+				<article class="pcas-about-program-card">
+					<div class="pcas-about-program-image"><img src="<?php echo esc_url($upload_base . '/2026/10/sl1.jpg'); ?>" alt="PCAS embalming licensure training" loading="lazy"></div>
+					<div class="pcas-about-program-body"><span class="pcas-about-card-label">ELR · Licensure preparation</span><h3>Embalming Licensure Course</h3><p>This two-month course combines theoretical and practical sessions to prepare students for the Department of Health licensure examination for undertakers and embalmers.</p><a href="<?php echo esc_url($contact_url); ?>">Ask about this program <span aria-hidden="true">→</span></a></div>
+				</article>
+				<article class="pcas-about-program-card">
+					<div class="pcas-about-program-image"><img src="<?php echo esc_url($upload_base . '/2026/10/sl2.jpg'); ?>" alt="Continuing education for embalmers at PCAS" loading="lazy"></div>
+					<div class="pcas-about-program-body"><span class="pcas-about-card-label">CEE · Professional development</span><h3>Continuing Embalmers Education</h3><p>Build new skills and earn credited units for license renewal through topics such as:</p><ul><li>Team building for mortuary professionals</li><li>Mortuary marketing and financial management</li><li>Effective funeral directing and business operations</li><li>Infection control and embalming analysis</li><li>Restorative art and first aid management</li></ul><a href="<?php echo esc_url($contact_url); ?>">Ask about this program <span aria-hidden="true">→</span></a></div>
+				</article>
+				<article class="pcas-about-program-card">
+					<div class="pcas-about-program-image"><img src="<?php echo esc_url($upload_base . '/2026/10/sl3.jpg'); ?>" alt="International students learning at PCAS" loading="lazy"></div>
+					<div class="pcas-about-program-body"><span class="pcas-about-card-label">ISP · Flexible training</span><h3>International Student Program</h3><p>Students from neighboring countries can learn professional practices through an intensive two-week theoretical program. Customized programs are also available.</p><a href="<?php echo esc_url($contact_url); ?>">Ask about this program <span aria-hidden="true">→</span></a></div>
+				</article>
+			</div>
+			<div class="pcas-about-bottom-cta"><div><strong>Ready to learn more?</strong><span>Talk with our team about the right program for you.</span></div><a class="pcas-about-button pcas-about-button-gold" href="<?php echo esc_url($contact_url); ?>">Contact PCAS <span aria-hidden="true">→</span></a></div>
+		</div>
+	</section>
+</main>
 <?php get_footer(); ?>

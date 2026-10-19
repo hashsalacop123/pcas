@@ -1,0 +1,113 @@
+.pcas-account-page {
+	--account-navy: #10164f;
+	--account-blue: #223b8f;
+	--account-gold: #ffbf45;
+	--account-ink: #162033;
+	--account-muted: #69758a;
+	--account-line: #dce4f0;
+	min-height: 620px;
+	display: grid;
+	grid-template-columns: minmax(300px, .85fr) minmax(0, 1.15fr);
+	color: var(--account-ink);
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	background: #f7f9fd;
+}
+.pcas-account-page * { box-sizing: border-box; }
+.pcas-account-aside { position: relative; display: flex; align-items: center; overflow: hidden; padding: 64px clamp(28px, 6vw, 90px); color: #fff; background: radial-gradient(circle at 88% 18%, rgba(55,214,179,.18), transparent 28%), linear-gradient(145deg, #0a0f36, #161a58 64%, #223b8f); }
+.pcas-account-aside:after { content: ""; position: absolute; width: 430px; height: 430px; left: -230px; bottom: -280px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.035), 0 0 0 75px rgba(255,255,255,.025); }
+.pcas-account-aside-inner { position: relative; z-index: 1; width: min(100%, 430px); margin: 0 auto; }
+.pcas-account-kicker, .pcas-account-eyebrow { display: inline-block; color: #37d6b3; font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.pcas-account-mark { display: grid; place-items: center; width: 72px; height: 72px; margin: 34px 0 24px; border: 1px solid rgba(255,255,255,.5); border-radius: 50%; outline: 1px solid rgba(255,255,255,.16); outline-offset: 5px; color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 700; letter-spacing: .08em; }
+.pcas-account-aside h1 { max-width: 440px; margin: 0 0 16px; color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(38px, 4.5vw, 58px); line-height: 1.06; letter-spacing: -.025em; }
+.pcas-account-aside p { max-width: 430px; margin: 0; color: #d8e2ff; font-size: 15px; line-height: 1.8; }
+.pcas-account-aside-note { margin-top: 42px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .05em; }
+.pcas-account-aside-note span { margin-right: 8px; color: var(--account-gold); }
+.pcas-account-content { display: flex; align-items: center; justify-content: center; padding: 56px clamp(24px, 6vw, 88px); }
+.pcas-account-card { width: min(100%, 580px); padding: clamp(28px, 4vw, 48px); border: 1px solid rgba(220,228,240,.9); border-radius: 22px; background: #fff; box-shadow: 0 18px 55px rgba(13,27,76,.1); }
+.pcas-account-eyebrow { color: var(--account-blue); }
+.pcas-account-card h2 { margin: 10px 0 8px; color: var(--account-navy); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(31px, 3vw, 40px); line-height: 1.15; }
+.pcas-account-lead { margin: 0 0 26px; color: var(--account-muted); font-size: 14px; line-height: 1.65; }
+.pcas-account-form { display: grid; gap: 17px; }
+.pcas-account-fields { display: grid; gap: 15px; }
+.pcas-account-fields-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pcas-account-field label { display: block; margin: 0 0 7px; color: var(--account-ink); font-size: 12px; font-weight: 800; }
+.pcas-account-field input { display: block; width: 100%; min-height: 47px; padding: 11px 13px; border: 1px solid var(--account-line); border-radius: 9px; outline: none; background: #fbfcff; color: var(--account-ink); font: inherit; font-size: 14px; transition: border-color .15s, box-shadow .15s; }
+.pcas-account-field input:focus { border-color: var(--account-blue); box-shadow: 0 0 0 3px rgba(34,59,143,.12); }
+.pcas-account-field small { display: block; margin-top: 6px; color: var(--account-muted); font-size: 11px; }
+.pcas-account-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 49px; margin-top: 3px; border: 0; border-radius: 999px; background: var(--account-navy); color: #fff; font: inherit; font-size: 14px; font-weight: 900; cursor: pointer; transition: background .15s, transform .15s; }
+.pcas-account-submit:hover, .pcas-account-submit:focus { background: var(--account-blue); color: #fff; transform: translateY(-1px); }
+.pcas-account-form-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--account-muted); font-size: 12px; }
+.pcas-account-form-meta > a, .pcas-account-switch a { color: var(--account-blue); font-weight: 800; text-decoration: none; }
+.pcas-account-form-meta > a:hover, .pcas-account-switch a:hover { text-decoration: underline; }
+.pcas-account-remember { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.pcas-account-remember input { accent-color: var(--account-blue); }
+.pcas-account-switch { margin: 22px 0 0; color: var(--account-muted); font-size: 13px; text-align: center; }
+.pcas-account-alert { margin: 0 0 20px; padding: 13px 15px; border: 1px solid #f0c7c7; border-radius: 10px; background: #fff7f7; color: #913939; font-size: 13px; line-height: 1.55; }
+.pcas-account-alert ul { margin: 7px 0 0; padding-left: 19px; }
+.pcas-account-dashboard { --dash-green:#174d3d; --dash-deep:#10372c; --dash-gold:#d3ad68; --dash-ink:#25342d; --dash-muted:#68766e; color:var(--dash-ink); background:#f6f8f5; padding-bottom:76px; }
+.pcas-account-dashboard * { box-sizing:border-box; }
+.pcas-account-wrap { width:min(1160px,calc(100% - 40px)); margin-inline:auto; }
+.pcas-account-welcome { padding:54px 0 52px; color:#fff; background:radial-gradient(circle at 85% 0,rgba(211,173,104,.18),transparent 28%),linear-gradient(120deg,var(--dash-deep),var(--dash-green)); }
+.pcas-account-welcome-row { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.pcas-dashboard-kicker { display:block; color:var(--dash-gold); font-size:.75rem; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+.pcas-account-welcome h1 { margin:10px 0 9px; color:#fff; font:700 clamp(2.1rem,4vw,3.1rem)/1.13 Georgia,'Times New Roman',serif; }
+.pcas-account-welcome p { margin:0; color:rgba(255,255,255,.82); line-height:1.65; }
+.pcas-dashboard-logout { flex:none; padding:11px 15px; border:1px solid rgba(255,255,255,.4); border-radius:6px; color:#fff; text-decoration:none; font-size:.9rem; font-weight:700; }
+.pcas-dashboard-logout:hover { background:rgba(255,255,255,.1); color:#fff; }
+.pcas-account-body { padding-top:32px; }
+.pcas-account-summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-bottom:48px; }
+.pcas-account-summary>div { display:flex; flex-direction:column; gap:8px; min-width:0; padding:19px 22px; border:1px solid #e3e9e3; border-radius:9px; background:#fff; }
+.pcas-account-summary span { color:var(--dash-muted); font-size:.83rem; }
+.pcas-account-summary strong { color:var(--dash-green); font:700 1.5rem/1.25 Georgia,'Times New Roman',serif; overflow-wrap:anywhere; }
+.pcas-account-summary .pcas-summary-email { font-family:inherit; font-size:1rem; line-height:1.4; }
+.pcas-dashboard-section { margin-top:42px; }
+.pcas-dashboard-section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:21px; }
+.pcas-dashboard-section-head h2 { margin:6px 0; color:var(--dash-deep); font:700 clamp(1.7rem,3vw,2.2rem)/1.2 Georgia,'Times New Roman',serif; }
+.pcas-dashboard-section-head p { margin:0; color:var(--dash-muted); line-height:1.6; }
+.pcas-dashboard-text-link { flex:none; color:var(--dash-green); font-size:.9rem; font-weight:800; text-decoration:none; }
+.pcas-dashboard-text-link:hover { text-decoration:underline; }
+.pcas-dashboard-course-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.pcas-dashboard-course,.pcas-dashboard-empty,.pcas-profile-section { padding:25px; border:1px solid #e1e8e1; border-radius:10px; background:#fff; }
+.pcas-dashboard-course-kicker { color:#78867d; font-size:.7rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.pcas-dashboard-course h3 { min-height:2.5em; margin:9px 0 20px; color:var(--dash-deep); font:700 1.45rem/1.25 Georgia,'Times New Roman',serif; }
+.pcas-dashboard-progress-label { display:flex; justify-content:space-between; gap:14px; margin-bottom:7px; color:var(--dash-muted); font-size:.84rem; }
+.pcas-dashboard-progress-label strong { color:var(--dash-green); }
+.pcas-dashboard-course progress { display:block; width:100%; height:8px; border:0; border-radius:99px; overflow:hidden; accent-color:var(--dash-green); }
+.pcas-dashboard-course progress::-webkit-progress-bar { border-radius:99px; background:#e8eee9; }
+.pcas-dashboard-course progress::-webkit-progress-value { border-radius:99px; background:var(--dash-green); }
+.pcas-dashboard-course progress::-moz-progress-bar { border-radius:99px; background:var(--dash-green); }
+.pcas-dashboard-course-actions { display:flex; align-items:center; flex-wrap:wrap; gap:15px; margin-top:21px; }
+.pcas-dashboard-button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:45px; padding:11px 17px; border:1px solid var(--dash-green); border-radius:5px; background:var(--dash-green); color:#fff; font-family:inherit; font-size:.9rem; font-weight:700; line-height:1.2; text-decoration:none; cursor:pointer; }
+.pcas-dashboard-button:hover { background:var(--dash-deep); color:#fff; }
+.pcas-dashboard-course-outline { color:var(--dash-green); font-size:.87rem; font-weight:700; text-decoration:none; }
+.pcas-dashboard-course-outline:hover { text-decoration:underline; }
+.pcas-dashboard-empty { padding:35px; }
+.pcas-dashboard-empty h3 { margin:0 0 8px; color:var(--dash-deep); font:700 1.45rem Georgia,'Times New Roman',serif; }
+.pcas-dashboard-empty p { max-width:600px; margin:0 0 20px; color:var(--dash-muted); line-height:1.65; }
+.pcas-profile-section { margin-top:42px; }
+.pcas-profile-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:23px; }
+.pcas-profile-form label { display:grid; gap:7px; color:var(--dash-ink); font-size:.83rem; font-weight:700; }
+.pcas-profile-form input { width:100%; min-height:45px; padding:10px 12px; border:1px solid #d9e2da; border-radius:5px; background:#fbfcfb; color:var(--dash-ink); font:inherit; }
+.pcas-profile-form input:focus { outline:3px solid rgba(23,77,61,.13); border-color:var(--dash-green); }
+.pcas-profile-form .pcas-profile-email { grid-column:1/-1; }
+.pcas-profile-form .pcas-dashboard-button { justify-self:start; }
+.pcas-dashboard-notice { margin-bottom:20px; padding:14px 17px; border:1px solid #c5ddcb; border-radius:6px; background:#edf7ef; color:#235a38; }
+.pcas-dashboard-notice.is-error { border-color:#e6c7bf; background:#fff4f0; color:#8b4331; }
+.pcas-account-welcome .pcas-dashboard-actions { display:flex; gap:12px; margin-top:23px; }
+.pcas-dashboard-button.is-light { border-color:rgba(255,255,255,.65); background:transparent; color:#fff; }
+.pcas-dashboard-button.is-light:hover { background:rgba(255,255,255,.12); }
+@media(max-width:760px) { .pcas-account-summary { grid-template-columns:1fr 1fr; } .pcas-account-summary>div:last-child { grid-column:1/-1; } .pcas-dashboard-course-grid { grid-template-columns:1fr; } }
+@media(max-width:540px) { .pcas-account-wrap { width:min(100% - 28px,1160px); } .pcas-account-welcome { padding:40px 0; } .pcas-account-welcome-row { align-items:flex-start; flex-direction:column; } .pcas-dashboard-section-head { align-items:flex-start; flex-direction:column; } .pcas-account-summary { grid-template-columns:1fr 1fr; gap:9px; } .pcas-account-summary>div { padding:15px; } .pcas-account-summary strong { font-size:1.25rem; } .pcas-profile-form { grid-template-columns:1fr; } .pcas-profile-form .pcas-profile-email { grid-column:auto; } .pcas-dashboard-course,.pcas-dashboard-empty,.pcas-profile-section { padding:19px; } }
+@media (max-width: 850px) {
+	.pcas-account-page { grid-template-columns: 1fr; }
+	.pcas-account-aside { min-height: 300px; padding: 42px 28px; }
+	.pcas-account-mark { width: 56px; height: 56px; margin: 23px 0 17px; font-size: 16px; }
+	.pcas-account-aside-note { margin-top: 22px; }
+	.pcas-account-content { padding: 36px 20px 56px; }
+}
+@media (max-width: 520px) {
+	.pcas-account-fields-two { grid-template-columns: 1fr; }
+	.pcas-account-aside { min-height: auto; }
+	.pcas-account-aside h1 { font-size: 39px; }
+	.pcas-account-card { padding: 26px 21px; }
+}
